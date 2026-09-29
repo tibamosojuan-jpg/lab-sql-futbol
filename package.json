@@ -1,0 +1,15 @@
+{
+  "name": "lab-sql-futbol",
+  "version": "1.0.0",
+  "description": "Modelado y analisis de datos con SQL sobre el dataset de partidos de futbol",
+  "main": "src/loader.js",
+  "scripts": {
+    "load": "node src/loader.js",
+    "verify": "node src/verify.js"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.3",
+    "dotenv": "^18.0.4",
+    "mysql2": "^3.24.4"
+  }
+}
