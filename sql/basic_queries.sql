@@ -3,11 +3,13 @@ USE football_analytics;
 -- B1. Filtrado con dos condiciones.
 -- Pregunta: en que participaciones un equipo anoto cuatro o mas goles
 -- teniendo menos del 45% de la posesion?
-SELECT game_id, role, goals, possession, shots_on_target
-FROM game_team_stat
-WHERE goals >= 4
-  AND possession < 45
-ORDER BY goals DESC, possession ASC
+SELECT t.name AS team, g.played_on, s.goals, s.possession, s.shots_on_target
+FROM game_team_stat AS s
+JOIN team AS t ON t.id = s.team_id
+JOIN game AS g ON g.id = s.game_id
+WHERE s.goals >= 4
+  AND s.possession < 45
+ORDER BY s.goals DESC, s.possession ASC
 LIMIT 15;
 
 -- B2. JOIN entre dos entidades (team, game_team_stat).
